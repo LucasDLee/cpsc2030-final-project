@@ -1,39 +1,21 @@
 <?php
+    include 'connect-database.php';
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    function submit() {
+        try {
+            
+            global $pdo;
+            $insert = 'INSERT INTO inquiries (date, name, topic, inquiryText) VALUES (:date, :personName, :topic, :inquiryText)';
 
-?>
+            $prepare = $pdo->prepare($insert);
+            $prepare->bindValue(':date', date('Y-m-d'));
+            $prepare->bindValue(':personName', $_POST['name']);
+            $prepare->bindValue(':topic', $_POST['topic']);
+            $prepare->bindValue(':inquiryText', $_POST['inquiry']);
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Advice/Question Submission</title>
-        <link rel="stylesheet" href="../css/style.css">
-    </head>
-    <body>
-        <header>
-            <h1>Documentation</h1>
-            <p>Links to any images, text, and other content featured on this website will be listed below.</p>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="advice.php">Advice</a></li>
-                <li><a href="documentation.html">Documentation</a></li>
-            </ul>
-        </nav>
-        <main>
-            <?php
-                try {
-
-                } catch(PDOException $e) {
-                    
-                }
-            ?>
-        </main>
-        <footer>
-        <p>Developed and designed by Lucas Lee. See sources in the Documentation page.</p>
-            <a href="https://github.com/LucasDLee" target="_blank"><img src="../images/github.png" alt="github" height="50" width="50"></a>
-        </footer>
-    </body>
-</html>
+            $prepare->execute();
+        } catch(PDOException $e) {
+            echo '<p class="alert">Connection failed. ' . $e->getMessage() . '</p>';
+        }      
+    }

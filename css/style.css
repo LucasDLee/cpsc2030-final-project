@@ -36,6 +36,12 @@ footer>*, header>* {
     margin: 0;
 }
 
+.image-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 main>section {
     background-color: #A2A4DE;
     border-radius: 10px;
