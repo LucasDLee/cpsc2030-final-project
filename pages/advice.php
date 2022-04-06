@@ -1,5 +1,12 @@
 <?php
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
     
+    function display_all_questions() {
+        
+    }
+    
+    require '../php/connect-database.php';
 ?>
 
 <!DOCTYPE html>
@@ -7,13 +14,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
+        <title>Advice and Questions</title>
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
         <header>
-            <h1>Documentation</h1>
-            <p>Links to any images, text, and other content featured on this website will be listed below.</p>
+            <h1>Advice and Questions</h1>
+            <p>Subtitle</p>
         </header>
         <nav>
             <ul>
@@ -24,12 +31,10 @@
         </nav>
         <main>
             <section>
-                <h2>Ask Away!</h2>
-                <form action="php file" method="POST">
-                    <label for="name">Name: </label>
-                    <input type="text" name="name" />
-                    <label for="email">Email: </label>
-                    <input type="text" name="email" />
+                <h2>Got a question or want to share some advice? Go ahead and let us know!</h2>
+                <form action="../php/form-submission.php" method="POST">
+                    <label for="name">Name (required): </label>
+                    <input type="text" name="name" required>
                     <label for="topic">Topic:</label>
                     <select name="topic">
                         <option value="Tools">Tools</option>
@@ -37,14 +42,18 @@
                         <option value="Seasons">Seasons</option>
                         <option value="General Help/Advice">General Help/Advice</option>
                     </select>
-                    <label for="advice">Advice: </label>
-                    <textarea type="text" name="advice" rows="10" cols="50"></textarea>
+                    <label for="advice">Your Question/Advice: </label>
+                    <textarea type="text" name="advice" rows="10" cols="50" required>Place your question here!</textarea>
+                    <button type="submit" name="submit">Submit</button>
                 </form>
             </section>
+            <?php
+                display_all_questions();
+            ?>
         </main>
         <footer>
-        <p>Developed and designed by Lucas Lee</p>
-            <a href="https://github.com/LucasDLee" target="_blank"><img src="images/github.png" alt="github" height="50" width="50"></a>
+        <p>Developed and designed by Lucas Lee. See sources in the Documentation page.</p>
+            <a href="https://github.com/LucasDLee" target="_blank"><img src="../images/github.png" alt="github" height="50" width="50"></a>
         </footer>
     </body>
 </html>

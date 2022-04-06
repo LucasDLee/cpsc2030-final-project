@@ -1,7 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Poppins:wght@200;300;700&display=swap');
 
-html {
-    
+html, form input[type=text], form textarea[type=text], form select, form select>option {
+    font-family: 'Poppins', sans-serif;
+}
+
+.alert {
+    border: 1px solid black;
+    color: red;
+    padding: 1em;
+}
+
+body {
+    margin: 0;
+}
+
+footer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: center;
+}
+
+footer>p {
+    max-width: 40%;
+    text-align: right;
+}
+
+footer, header {
+    background-color: #A3DE8C;
+    padding: 1em;
+}
+
+footer>*, header>* {
+    margin: 0;
+}
+
+main>section {
+    background-color: #A2A4DE;
+    border-radius: 10px;
+    margin: 1em;
+    padding: 1em;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+}
+
+main form label {
+    padding-top: 1em;
+}
+
+main form button[type=submit] {
+    max-width: 20%;
+}
+
+main>section>article {
+    /* background-color: #DE9776; */
+    /* border-radius: 10px;
+    margin: 0.5rem;
+    padding: 0.5rem; */
+}
+
+nav>ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav>ul>li {
+    background-color: #60914D;
+    padding: 0.5rem 0;
+    border-bottom: 3px solid black;
+}
+
+nav>ul>li a {
+    color: white;
+    text-decoration: none;
 }
 
 @media screen and (min-width: 800px) {

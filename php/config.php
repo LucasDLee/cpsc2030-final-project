@@ -1,5 +1,5 @@
 <?php
+define('DBNAME', 'gardening-website');
 define('DBHOST', 'localhost');
-define('DBNAME', '');
 define('DBUSER', 'root');
 define('DBPASS', 'root');
