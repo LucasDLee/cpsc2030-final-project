@@ -7,14 +7,14 @@
 
     $pdo = db_connect();
     
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        submit();
-    }
+    // if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //     submit();
+    // }
     
     function display_all_questions() {
         try {
             global $pdo;
-            $display = 'SELECT * FROM Inquiries';
+            $display = 'SELECT * FROM Inquiries ORDER BY id DESC'; //most recent comment
 
             $result = $pdo->query($display);
 
@@ -49,7 +49,7 @@
     <body>
         <header>
             <h1>Advice and Questions</h1>
-            <p>Subtitle</p>
+            <p>We're here to help!</p>
         </header>
         <nav>
             <ul>
@@ -63,7 +63,8 @@
                 <h2>Got a question or want to share some advice? Go ahead and let us know!</h2>
                 <form method="POST">
                     <label for="name">Name (required): </label>
-                    <input type="text" name="name" required>
+                    <input type="text" name="name">
+                    <?php validate('name') ?>
                     <label for="topic">Topic:</label>
                     <select name="topic">
                         <option value="Tools">Tools</option>
@@ -72,17 +73,18 @@
                         <option value="General Help/Advice">General Help/Advice</option>
                     </select>
                     <label for="inquiry">Your Question/Advice: </label>
-                    <textarea type="text" name="inquiry" rows="10" cols="50" required></textarea>
+                    <textarea type="text" name="inquiry" rows="10" cols="50"></textarea>
+                    <?php validate('inquiry') ?>
                     <button type="submit" name="submit">Submit</button>
                 </form>
             </section>
             <?php
+                submit();
                 display_all_questions();
             ?>
         </main>
         <footer>
-        <p>Developed and designed by Lucas Lee. See sources in the Documentation page.</p>
-            <a href="https://github.com/LucasDLee" target="_blank"><img src="../images/github.png" alt="github" height="50" width="50"></a>
+            <p>Developed and designed by Lucas Lee. See sources in the Documentation page.</p>
         </footer>
     </body>
 </html>
