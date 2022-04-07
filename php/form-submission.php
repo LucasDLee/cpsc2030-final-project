@@ -8,7 +8,7 @@
     function validate($field) {
         global $valid;
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $name_format = "/[A-Za-z]/"; //will fail if there is a non-english name
+            $name_format = "/[A-Za-z]/"; //will fail if there is a non-Latin language name or numbers in the name
 
             if('name' == $field) {
                 $check_name = preg_match($name_format, $_POST[$field]);

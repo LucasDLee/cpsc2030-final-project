@@ -41,10 +41,15 @@ h1+p {
     font-size: 1em;
 }
 
+h2+figure {
+    display: none;
+}
+
 .image-gallery {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 1em;
 }
 
 .inquiry {
@@ -111,8 +116,26 @@ nav>ul>li a {
         padding: 1em 2em;
     }
 
+    header>h1 {
+        animation-name: grow;
+        animation-duration: 30s;
+        animation-direction: normal;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+    }
+
+    h2+figure {
+        display: block;
+    }
+
+    h2+figure>* {
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
+
     .image-gallery {
-        gap: 1em;
+        padding: 1em 0;
     }
 
     nav {
@@ -135,14 +158,31 @@ nav>ul>li a {
         max-width: 600px;
     }
 
+    /* TRANSITION ANIMATION */
     main>section {
+        box-shadow: none;
         margin: 1em auto;
         max-width: 700px;
+        transition: all 1s;
+    }
+
+    main>section:not(.form):hover, main>section:focus {
+        box-shadow: 0.5rem 0.5rem black;
+        transform: translate(-0.5rem, -0.5rem);
+    }
+
+    @keyframes grow {
+        0% {
+            font-size: 2em;
+        }
+
+        100% {
+            font-size: 4em;
+        }
     }
 }
 
 @media screen and (min-width: 1200px) {
-
     footer, header {
         padding: 1.5em 3em;
     }

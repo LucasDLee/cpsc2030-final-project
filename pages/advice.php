@@ -1,17 +1,11 @@
 <?php
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
-    
-    // require '../php/connect-database.php';
     require_once '../php/form-submission.php';
 
     $pdo = db_connect();
     
-    // if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //     submit();
-    // }
-    
-    function display_all_questions() {
+    function display_all_inquiries() {
         try {
             global $pdo;
             $display = 'SELECT * FROM Inquiries ORDER BY id DESC'; //most recent comment
@@ -59,11 +53,11 @@
             </ul>
         </nav>
         <main>
-            <section>
+            <section class='form'>
                 <h2>Got a question or want to share some advice? Go ahead and let us know!</h2>
                 <form method="POST">
                     <label for="name">Name (required): </label>
-                    <input type="text" name="name">
+                    <input type="text" name="name" required>
                     <?php validate('name') ?>
                     <label for="topic">Topic:</label>
                     <select name="topic">
@@ -72,15 +66,15 @@
                         <option value="Seasons">Seasons</option>
                         <option value="General Help/Advice">General Help/Advice</option>
                     </select>
-                    <label for="inquiry">Your Question/Advice: </label>
-                    <textarea type="text" name="inquiry" rows="10" cols="50"></textarea>
+                    <label for="inquiry">Your Question/Advice (required): </label>
+                    <textarea type="text" name="inquiry" rows="10" cols="50" required></textarea>
                     <?php validate('inquiry') ?>
                     <button type="submit" name="submit">Submit</button>
                 </form>
             </section>
             <?php
                 submit();
-                display_all_questions();
+                display_all_inquiries();
             ?>
         </main>
         <footer>
