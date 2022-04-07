@@ -38,11 +38,17 @@ footer>*, header>* {
 }
 
 h1+p {
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 h2+figure {
     display: none;
+}
+
+h2+figure>figcaption {
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 1em;
 }
 
 .image-gallery {
@@ -50,6 +56,7 @@ h2+figure {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1em;
+    justify-content: center;
 }
 
 .inquiry {
@@ -116,6 +123,7 @@ nav>ul>li a {
         padding: 1em 2em;
     }
 
+    /* KEYFRAMES ANIMATION */
     header>h1 {
         animation-name: grow;
         animation-duration: 30s;
@@ -126,12 +134,12 @@ nav>ul>li a {
 
     h2+figure {
         display: block;
-    }
-
-    h2+figure>* {
-        display: block;
         margin: auto;
         text-align: center;
+    }
+
+    h2+figure>img {
+        box-shadow: 0 0 30px black;
     }
 
     .image-gallery {
@@ -149,7 +157,7 @@ nav>ul>li a {
     }
     
     nav>ul>li {
-        background-color: none;
+        background-color: transparent;
         padding-right: 2em;
         border-bottom: none;
     }
@@ -171,12 +179,18 @@ nav>ul>li a {
         transform: translate(-0.5rem, -0.5rem);
     }
 
+    .selectedImage {
+        border: 10px solid #916854;
+    }
+
     @keyframes grow {
         0% {
+            text-shadow: none;
             font-size: 2em;
         }
 
         100% {
+            text-shadow: 5px 5px #916854;
             font-size: 4em;
         }
     }

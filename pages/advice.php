@@ -12,20 +12,20 @@
 
             $result = $pdo->query($display);
 
-            // $result->execute();
             $inquries = array();
 
             while($row = $result->fetch()) {
                 $inquries[] = $row;
             }
+
             for($i = 0; $i < count($inquries); $i++) {
                 echo "<div aria-label='section with a person&apos;s inquiry' class='inquiry'> 
                         <h3>" . $inquries[$i]['name'] . "</h3>
                         <h4>" . $inquries[$i]['topic'] . "</h4>
                         <p>" . $inquries[$i]['date'] . "</p>
                         <p>" . $inquries[$i]['inquiryText'] . "</p>
-                      </div>";
-              }
+                    </div>";
+            }
         } catch(PDOException $e) {
             echo "<p aria-label='database error' class='alert'>Sorry, we couldn't get the messages. " . $e->getMessage() . "</p>";
         }
