@@ -113,6 +113,10 @@ nav>ul>li a {
     text-decoration: none;
 }
 
+#validation {
+    display: none;
+}
+
 @media screen and (min-width: 800px) {
 
     a:hover {
@@ -181,6 +185,10 @@ nav>ul>li a {
 
     .selectedImage {
         border: 10px solid #916854;
+    }
+
+    #validation {
+        display: block;
     }
 
     @keyframes grow {

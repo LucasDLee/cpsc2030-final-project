@@ -1,7 +1,3 @@
 # Overview
 
-Gardening website
-
-## Sources
-- [Wikipedia - Gardening](https://en.wikipedia.org/wiki/Gardening)
-- Canadian Gardener's Guide, 2nd Edition, Pages 24-25
+This is my final project for CPSC 2030 at Langara College. I made a gardening website with JavaScript functionality in an image gallery and a comment section utilizing PHP.

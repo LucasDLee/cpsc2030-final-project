@@ -19,7 +19,7 @@
             }
 
             for($i = 0; $i < count($inquries); $i++) {
-                echo "<div aria-label='section with a person&apos;s inquiry' class='inquiry'> 
+                echo "<div aria-label='section with a person&apos;s inquiry' tabindex='0' class='inquiry'> 
                         <h3>" . $inquries[$i]['name'] . "</h3>
                         <h4>" . $inquries[$i]['topic'] . "</h4>
                         <p>" . $inquries[$i]['date'] . "</p>
@@ -53,7 +53,7 @@
             </ul>
         </nav>
         <main>
-            <section class='form'>
+            <section tabindex='0' class='form'>
                 <h2>Got a question or want to share some advice? Go ahead and let us know!</h2>
                 <form method="POST">
                     <label for="name">Name (required): </label>
